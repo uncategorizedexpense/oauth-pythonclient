@@ -85,7 +85,7 @@ def send_request(method, url, header, obj, body=None, session=None, oauth1_heade
     """
 
     headers = ACCEPT_HEADER
-    header.update(headers)
+    header.update(headers).copy()
 
     if session is not None and isinstance(session, Session):
         response = session.request(method, url, headers=header, data=body, auth=oauth1_header)
